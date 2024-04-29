@@ -8,9 +8,9 @@ To implement  D flipflop using verilog and validating their functionality using 
 
 Quartus prime
 
-**THEORY**
+**THEORY:**
 
-**D Flip-Flop**
+**D Flip-Flop:**
 
 D flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, D latch operates with enable signal. That means, the output of D flip-flop is insensitive to the changes in the input, D except for active transition of the clock signal. The circuit diagram of D flip-flop is shown in the following figure.
 
@@ -26,19 +26,43 @@ Therefore, D flip-flop always Hold the information, which is available on data i
 
 Next state of D flip-flop is always equal to data input, D for every positive transition of the clock signal. Hence, D flip-flops can be used in registers, shift registers and some of the counters.
 
-**Procedure**
+**Procedure:**
+#### Step-1: 
+Define Module: Define a Verilog module for the D flip-flop with inputs (D, CLK) and outputs (Q, Q_bar).
+#### Step-2:
+2.Declare Inputs and Outputs: Declare input and output ports for the module.
+#### Step-3:
+3.Implement Flip-Flop Logic: Write Verilog code to implement the D flip-flop logic based on its functional table. Use a synchronous always @(posedge CLK) block to trigger the flip-flop on the positive edge of the clock signal.
+#### Step-4:
+4.Simulate Using Testbench: Write a Verilog testbench to simulate the behavior of the D flip-flop under different input conditions.
+#### Step-5:
+5.Apply Input Stimuli: In the testbench, apply various combinations of input stimuli (D, CLK) to cover all possible input states.
+#### Step-6:
+6.Verify Output Behavior: Verify that the output behavior of the D flip-flop matches the expected behavior defined by its functional table.
+#### Step-7:
+7.Check for Race Conditions: Ensure that there are no race conditions or undefined states in the design by analyzing the timing and sequence of input changes.
+**PROGRAM:**
+```
+Developed by: SHYAM S
+RegisterNumber: 212223240156
+module D_FF(D,Clock,reset,Q);
+input D,Clock,reset;
+output reg Q;
+always @ (negedge Clock)
+if(!reset)
+	Q <= 0;
+else
+	Q <= D;	
+endmodule
+```
+**RTL LOGIC FOR FLIPFLOPS:**
 
-/* write all the steps invloved */
+![image](https://github.com/SridharShyam/D-FLIPDLOP-NEGEDGE/assets/144871368/793f830e-fe03-4926-af98-1bd9c4156886)
 
-**PROGRAM**
+**TIMING DIGRAMS FOR FLIP FLOPS:**
 
-/* Program for flipflops and verify its truth table in quartus using Verilog programming. Developed by: RegisterNumber:
-*/
-
-**RTL LOGIC FOR FLIPFLOPS**
+![image](https://github.com/SridharShyam/D-FLIPDLOP-NEGEDGE/assets/144871368/41b6d04e-82cf-475f-b5d9-e766bb1dfdc3)
 
 
-**TIMING DIGRAMS FOR FLIP FLOPS**
-
-
-**RESULTS**
+**RESULT:**
+ Thus the program to implement a D flipflop using verilog and validating their functionality using their functional tables
